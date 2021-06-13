@@ -195,8 +195,7 @@
 <!--            <scope>runtime</scope>-->
 <!--        </dependency>-->
 <!--        我加的-->
-
-    </dependencies>
+   </dependencies>
 <!--我加的-->
     <build>
         <extensions>
@@ -237,7 +236,6 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
-
             <!-- 上面是我加的-->
         </plugins>
         <!-- 配置资源目录  -->
