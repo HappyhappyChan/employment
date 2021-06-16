@@ -212,6 +212,8 @@ public class CompController {
         long comp_id = compUserMapper.getById(hrid).getCompId();
         log.info("Current company id:{}",comp_id);
         j.setCompId(comp_id);
+        j.setStatus(1);
+        j.setApproveStatus(1);
         return compService.addJob(j);
     }
 
@@ -244,6 +246,7 @@ public class CompController {
 
     /**
      * 删除职位信息
+     * 其实没有删除 只是把status 改成2
      * */
     @DeleteMapping("deleteJobInfo")
     @ApiOperation("删除职位信息")
@@ -252,7 +255,10 @@ public class CompController {
         log.info("Receive JobId:{}",jobId);
         StpUtil.checkPermission("job_info");
         long id = StpUtil.getLoginIdAsLong();
-        return compService.deleteJobInfo(id, jobId);
+//        return compService.deleteJobInfo(id, jobId); 原本的
+        JobInfo  j = jobInfoMapper.getById(jobId);
+        j.setStatus(2);
+        return compService.updateJobInfo(j);
     }
 
     /**

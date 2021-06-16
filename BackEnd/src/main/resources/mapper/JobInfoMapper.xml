@@ -108,7 +108,7 @@
     <select id="selectAllJobByJobIds" parameterType="java.util.List" resultType="JobInfo">
         select jobId,compId,jobName,jobType,jobKind,status,relDate,jobAddress,jobCon,jobDeadline,deliverNum,salary,approveStatus
         from `job_info`
-        where `jobId` in
+        where `status` = 1 and jobId` in
         <foreach collection="jobIds" item="jobId" index="index"
                  open="(" close=")" separator=",">
             #{jobId}
