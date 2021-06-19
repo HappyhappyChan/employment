@@ -31,6 +31,7 @@ import java.util.List;
 @RequestMapping("/comp/")
 @Api
 @Slf4j
+@CrossOrigin
 public class CompController {
 
     private final CompService compService;
@@ -230,7 +231,8 @@ public class CompController {
             @ApiImplicitParam(name = "jobAddress", value = "工作地点", required = true),
             @ApiImplicitParam(name = "jobCon", value = "职位描述", required = true),
             @ApiImplicitParam(name = "jobDeadline", value = "投递截止日期", required = true),
-            @ApiImplicitParam(name = "salary", value = "薪资", required = true)
+            @ApiImplicitParam(name = "salary", value = "薪资", required = true),
+            @ApiImplicitParam(name = "status", value = "招聘状态", required = true,allowableValues = "1,2")
     })
     public AjaxJson updateJobInfo(JobInfo j){
         log.info("Start updateJobInfo========");
